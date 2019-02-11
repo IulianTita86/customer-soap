@@ -15,20 +15,21 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class WebServiceConfig extends WsConfigurerAdapter {
+	
     @Bean
-    public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext){
+    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext){
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return  new ServletRegistrationBean(servlet, "/customerws/*");
+        return  new ServletRegistrationBean<MessageDispatcherServlet>(servlet, "/ws/*");
     }
 
     @Bean(name ="customer")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema customerSchema){
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("CustomerPort");
-        wsdl11Definition.setLocationUri("/customerws");
-        wsdl11Definition.setTargetNamespace("http://spring.io/guides/gs-producing-web-service");
+        wsdl11Definition.setPortTypeName("CustomrService");
+        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setTargetNamespace("/http://ingres.com/customer");
         wsdl11Definition.setSchema(customerSchema);
         return wsdl11Definition;
     }

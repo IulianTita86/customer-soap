@@ -6,9 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import simple.entity.Customer;
 
-import java.util.stream.Stream;
+import simple.entity.Customer;
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer, String> {
 

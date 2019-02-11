@@ -13,8 +13,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Customer getCustomerByEmail(String email) {
-        Customer customer = customerRepository.findByEmail(email);
-        return customer;
+       return customerRepository.findByEmail(email);
     }
 
     @Override

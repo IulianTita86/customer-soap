@@ -1,8 +1,5 @@
 package simple.endpoints;
 
-import io.spring.guides.gs_producing_web_service.AddOrUpdateCustomerRequest;
-import io.spring.guides.gs_producing_web_service.AddOrUpdateCustomerResponse;
-import io.spring.guides.gs_producing_web_service.CustomerInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -10,13 +7,17 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import com.ingres.AddOrUpdateCustomerRequest;
+import com.ingres.AddOrUpdateCustomerResponse;
+import com.ingres.CustomerInfo;
+
 import simple.entity.Customer;
 import simple.service.ICustomerService;
 
 
 @Endpoint
 public class CustomerEndpoint {
-    private static final String NAMESPACE_URI = "http://spring.io/guides/gs-producing-web-service";
+    private static final String NAMESPACE_URI = "http://ingres.com/customer";
 
     @Autowired
     private ICustomerService customerService;
